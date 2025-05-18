@@ -28,23 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonDeleteGuest = new System.Windows.Forms.Button();
+            this.buttonUpdateGuest = new System.Windows.Forms.Button();
             this.buttonAddGuest = new System.Windows.Forms.Button();
-            this.textBoxPostalCode = new System.Windows.Forms.TextBox();
+            this.addG_postal = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxProvince = new System.Windows.Forms.TextBox();
+            this.addG_province = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxCity = new System.Windows.Forms.TextBox();
+            this.addG_city = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.selectBirthday = new System.Windows.Forms.DateTimePicker();
-            this.textBoxBrgy = new System.Windows.Forms.TextBox();
+            this.addG_bday = new System.Windows.Forms.DateTimePicker();
+            this.addG_baranggay = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxLastName = new System.Windows.Forms.TextBox();
+            this.addG_lname = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxFirstName = new System.Windows.Forms.TextBox();
+            this.addG_fname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -57,59 +60,61 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.buttonDelete);
-            this.panel1.Controls.Add(this.buttonUpdate);
+            this.panel1.Controls.Add(this.buttonDeleteGuest);
+            this.panel1.Controls.Add(this.buttonUpdateGuest);
             this.panel1.Controls.Add(this.buttonAddGuest);
-            this.panel1.Controls.Add(this.textBoxPostalCode);
+            this.panel1.Controls.Add(this.addG_postal);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.textBoxProvince);
+            this.panel1.Controls.Add(this.addG_province);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBoxCity);
+            this.panel1.Controls.Add(this.addG_city);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.selectBirthday);
-            this.panel1.Controls.Add(this.textBoxBrgy);
+            this.panel1.Controls.Add(this.addG_bday);
+            this.panel1.Controls.Add(this.addG_baranggay);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBoxLastName);
+            this.panel1.Controls.Add(this.addG_lname);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBoxFirstName);
+            this.panel1.Controls.Add(this.addG_fname);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(16, 17);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(320, 753);
             this.panel1.TabIndex = 0;
             // 
-            // buttonDelete
+            // buttonDeleteGuest
             // 
-            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(14)))), ((int)(((byte)(28)))));
-            this.buttonDelete.FlatAppearance.BorderSize = 0;
-            this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(97)))), ((int)(((byte)(66)))));
-            this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(97)))), ((int)(((byte)(66)))));
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(55, 618);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(202, 40);
-            this.buttonDelete.TabIndex = 17;
-            this.buttonDelete.Text = "Delete";
-            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDeleteGuest.BackColor = System.Drawing.Color.Brown;
+            this.buttonDeleteGuest.FlatAppearance.BorderSize = 0;
+            this.buttonDeleteGuest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(97)))), ((int)(((byte)(66)))));
+            this.buttonDeleteGuest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(97)))), ((int)(((byte)(66)))));
+            this.buttonDeleteGuest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteGuest.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeleteGuest.ForeColor = System.Drawing.Color.White;
+            this.buttonDeleteGuest.Location = new System.Drawing.Point(55, 641);
+            this.buttonDeleteGuest.Name = "buttonDeleteGuest";
+            this.buttonDeleteGuest.Size = new System.Drawing.Size(202, 40);
+            this.buttonDeleteGuest.TabIndex = 17;
+            this.buttonDeleteGuest.Text = "Delete";
+            this.buttonDeleteGuest.UseVisualStyleBackColor = false;
+            this.buttonDeleteGuest.Click += new System.EventHandler(this.buttonDeleteGuest_Click);
             // 
-            // buttonUpdate
+            // buttonUpdateGuest
             // 
-            this.buttonUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(14)))), ((int)(((byte)(28)))));
-            this.buttonUpdate.FlatAppearance.BorderSize = 0;
-            this.buttonUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(97)))), ((int)(((byte)(66)))));
-            this.buttonUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(97)))), ((int)(((byte)(66)))));
-            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUpdate.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
-            this.buttonUpdate.Location = new System.Drawing.Point(55, 572);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(202, 40);
-            this.buttonUpdate.TabIndex = 16;
-            this.buttonUpdate.Text = "Update";
-            this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdateGuest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(14)))), ((int)(((byte)(28)))));
+            this.buttonUpdateGuest.FlatAppearance.BorderSize = 0;
+            this.buttonUpdateGuest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(97)))), ((int)(((byte)(66)))));
+            this.buttonUpdateGuest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(97)))), ((int)(((byte)(66)))));
+            this.buttonUpdateGuest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdateGuest.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUpdateGuest.ForeColor = System.Drawing.Color.White;
+            this.buttonUpdateGuest.Location = new System.Drawing.Point(55, 583);
+            this.buttonUpdateGuest.Name = "buttonUpdateGuest";
+            this.buttonUpdateGuest.Size = new System.Drawing.Size(202, 40);
+            this.buttonUpdateGuest.TabIndex = 16;
+            this.buttonUpdateGuest.Text = "Update";
+            this.buttonUpdateGuest.UseVisualStyleBackColor = false;
+            this.buttonUpdateGuest.Click += new System.EventHandler(this.buttonUpdateGuest_Click);
             // 
             // buttonAddGuest
             // 
@@ -126,15 +131,16 @@
             this.buttonAddGuest.TabIndex = 15;
             this.buttonAddGuest.Text = "Add";
             this.buttonAddGuest.UseVisualStyleBackColor = false;
+            this.buttonAddGuest.Click += new System.EventHandler(this.buttonAddGuest_Click);
             // 
-            // textBoxPostalCode
+            // addG_postal
             // 
-            this.textBoxPostalCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxPostalCode.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPostalCode.Location = new System.Drawing.Point(55, 461);
-            this.textBoxPostalCode.Name = "textBoxPostalCode";
-            this.textBoxPostalCode.Size = new System.Drawing.Size(202, 28);
-            this.textBoxPostalCode.TabIndex = 14;
+            this.addG_postal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.addG_postal.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addG_postal.Location = new System.Drawing.Point(55, 461);
+            this.addG_postal.Name = "addG_postal";
+            this.addG_postal.Size = new System.Drawing.Size(202, 28);
+            this.addG_postal.TabIndex = 14;
             // 
             // label7
             // 
@@ -147,14 +153,14 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Postal Code";
             // 
-            // textBoxProvince
+            // addG_province
             // 
-            this.textBoxProvince.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxProvince.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProvince.Location = new System.Drawing.Point(55, 393);
-            this.textBoxProvince.Name = "textBoxProvince";
-            this.textBoxProvince.Size = new System.Drawing.Size(202, 28);
-            this.textBoxProvince.TabIndex = 12;
+            this.addG_province.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.addG_province.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addG_province.Location = new System.Drawing.Point(55, 393);
+            this.addG_province.Name = "addG_province";
+            this.addG_province.Size = new System.Drawing.Size(202, 28);
+            this.addG_province.TabIndex = 12;
             // 
             // label6
             // 
@@ -167,14 +173,14 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Province";
             // 
-            // textBoxCity
+            // addG_city
             // 
-            this.textBoxCity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxCity.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCity.Location = new System.Drawing.Point(55, 330);
-            this.textBoxCity.Name = "textBoxCity";
-            this.textBoxCity.Size = new System.Drawing.Size(202, 28);
-            this.textBoxCity.TabIndex = 10;
+            this.addG_city.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.addG_city.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addG_city.Location = new System.Drawing.Point(55, 330);
+            this.addG_city.Name = "addG_city";
+            this.addG_city.Size = new System.Drawing.Size(202, 28);
+            this.addG_city.TabIndex = 10;
             // 
             // label5
             // 
@@ -187,21 +193,21 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "City";
             // 
-            // selectBirthday
+            // addG_bday
             // 
-            this.selectBirthday.Location = new System.Drawing.Point(57, 208);
-            this.selectBirthday.Name = "selectBirthday";
-            this.selectBirthday.Size = new System.Drawing.Size(200, 23);
-            this.selectBirthday.TabIndex = 8;
+            this.addG_bday.Location = new System.Drawing.Point(57, 208);
+            this.addG_bday.Name = "addG_bday";
+            this.addG_bday.Size = new System.Drawing.Size(200, 23);
+            this.addG_bday.TabIndex = 8;
             // 
-            // textBoxBrgy
+            // addG_baranggay
             // 
-            this.textBoxBrgy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxBrgy.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBrgy.Location = new System.Drawing.Point(55, 267);
-            this.textBoxBrgy.Name = "textBoxBrgy";
-            this.textBoxBrgy.Size = new System.Drawing.Size(202, 28);
-            this.textBoxBrgy.TabIndex = 7;
+            this.addG_baranggay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.addG_baranggay.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addG_baranggay.Location = new System.Drawing.Point(55, 267);
+            this.addG_baranggay.Name = "addG_baranggay";
+            this.addG_baranggay.Size = new System.Drawing.Size(202, 28);
+            this.addG_baranggay.TabIndex = 7;
             // 
             // label4
             // 
@@ -225,14 +231,14 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Birthday";
             // 
-            // textBoxLastName
+            // addG_lname
             // 
-            this.textBoxLastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxLastName.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLastName.Location = new System.Drawing.Point(55, 146);
-            this.textBoxLastName.Name = "textBoxLastName";
-            this.textBoxLastName.Size = new System.Drawing.Size(202, 28);
-            this.textBoxLastName.TabIndex = 3;
+            this.addG_lname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.addG_lname.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addG_lname.Location = new System.Drawing.Point(55, 146);
+            this.addG_lname.Name = "addG_lname";
+            this.addG_lname.Size = new System.Drawing.Size(202, 28);
+            this.addG_lname.TabIndex = 3;
             // 
             // label2
             // 
@@ -245,14 +251,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Last Name";
             // 
-            // textBoxFirstName
+            // addG_fname
             // 
-            this.textBoxFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxFirstName.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFirstName.Location = new System.Drawing.Point(55, 81);
-            this.textBoxFirstName.Name = "textBoxFirstName";
-            this.textBoxFirstName.Size = new System.Drawing.Size(202, 28);
-            this.textBoxFirstName.TabIndex = 1;
+            this.addG_fname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.addG_fname.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addG_fname.Location = new System.Drawing.Point(55, 81);
+            this.addG_fname.Name = "addG_fname";
+            this.addG_fname.Size = new System.Drawing.Size(202, 28);
+            this.addG_fname.TabIndex = 1;
             // 
             // label1
             // 
@@ -282,22 +288,49 @@
             this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(24, 35);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(156, 24);
+            this.label8.Size = new System.Drawing.Size(162, 24);
             this.label8.TabIndex = 1;
-            this.label8.Text = "Guests Record";
+            this.label8.Text = "Guest\'s Record";
             // 
             // dataGridViewGuest
             // 
             this.dataGridViewGuest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(14)))), ((int)(((byte)(28)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(14)))), ((int)(((byte)(28)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGuest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGuest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewGuest.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewGuest.EnableHeadersVisualStyles = false;
             this.dataGridViewGuest.Location = new System.Drawing.Point(24, 81);
             this.dataGridViewGuest.Name = "dataGridViewGuest";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGuest.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewGuest.RowHeadersVisible = false;
             this.dataGridViewGuest.RowHeadersWidth = 51;
             this.dataGridViewGuest.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewGuest.RowTemplate.Height = 24;
             this.dataGridViewGuest.Size = new System.Drawing.Size(789, 647);
             this.dataGridViewGuest.TabIndex = 0;
+            this.dataGridViewGuest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGuest_CellClick);
+            this.dataGridViewGuest.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGuest_CellContentClick);
             // 
             // admin_addGuest
             // 
@@ -322,22 +355,22 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBoxFirstName;
+        private System.Windows.Forms.TextBox addG_fname;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker selectBirthday;
-        private System.Windows.Forms.TextBox textBoxBrgy;
+        private System.Windows.Forms.DateTimePicker addG_bday;
+        private System.Windows.Forms.TextBox addG_baranggay;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxLastName;
+        private System.Windows.Forms.TextBox addG_lname;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxPostalCode;
+        private System.Windows.Forms.TextBox addG_postal;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxProvince;
+        private System.Windows.Forms.TextBox addG_province;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxCity;
+        private System.Windows.Forms.TextBox addG_city;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button buttonDeleteGuest;
+        private System.Windows.Forms.Button buttonUpdateGuest;
         private System.Windows.Forms.Button buttonAddGuest;
         private System.Windows.Forms.DataGridView dataGridViewGuest;
         private System.Windows.Forms.Label label8;
