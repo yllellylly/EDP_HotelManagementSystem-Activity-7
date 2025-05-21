@@ -61,38 +61,43 @@ namespace Hotel_System
                 {
                     conn.Open();
 
-                    // 🔍 Fetch the hashed password from DB based on username
-                    string query = "SELECT password FROM system_users WHERE username = @username LIMIT 1";
+                    // 👇 Modified query: also get status
+                    string query = @"SELECT password, status FROM system_users WHERE username = @username LIMIT 1";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@username", username);
 
-                    object result = cmd.ExecuteScalar();
-
-                    if (result != null)
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        string storedHashedPassword = result.ToString();
-
-                        // ✅ Compare entered password with stored hashed password
-                        bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, storedHashedPassword);
-
-                        if (isPasswordValid)
+                        if (reader.Read())
                         {
-                            MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            string storedHashedPassword = reader["password"].ToString();
+                            string accountStatus = reader["status"].ToString();
 
-                            // TODO: Redirect to the main dashboard form
-                            // e.g., new DashboardForm().Show(); this.Hide();
-                            dashboard Dashboard = new dashboard();
-                            Dashboard.Show();
-                            this.Hide();
+                            if (accountStatus.Equals("Inactive", StringComparison.OrdinalIgnoreCase))
+                            {
+                                MessageBox.Show("Your account is currently inactive. Please contact admin.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, storedHashedPassword);
+
+                            if (isPasswordValid)
+                            {
+                                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                dashboard Dashboard = new dashboard();
+                                Dashboard.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("User not found.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("User not found.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)

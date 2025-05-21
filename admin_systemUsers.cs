@@ -135,6 +135,7 @@ namespace Hotel_System
             system_username.Clear();
             system_email.Clear();
             system_ustatus.SelectedIndex = -1;
+            system_pass.Clear();
         }
 
         private void dataGridViewSystemUsers_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -44,6 +44,7 @@ namespace Hotel_System
         {
 
         }
+
         private void LoadBookingData(string searchTerm = "")
         {
             /*string connStr = "server=localhost;user=admin1;password=admin123;database=hotel;";
@@ -322,6 +323,7 @@ namespace Hotel_System
             return fullName;
         }
 
+        private int selectedGuestId;
         private void dataViewBookings_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -334,7 +336,9 @@ namespace Hotel_System
                 //dashfullname.Text = row.Cells["guest_id"].Value.ToString();
 
                 int guestId = Convert.ToInt32(row.Cells["guest_id"].Value);
-                dashfullname.Text = GetGuestFullName(guestId);  // Display full name here
+                //dashfullname.Text = GetGuestFullName(guestId);  // Display full name here
+                dashfullname.Text = GetGuestFullName(guestId);
+                selectedGuestId = guestId;
 
                 dashcheckin.Value = Convert.ToDateTime(row.Cells["check_in_date"].Value);
                 dashcheckout.Value = Convert.ToDateTime(row.Cells["check_out_date"].Value);
@@ -367,6 +371,10 @@ namespace Hotel_System
                 return;
             }
 
+            int bookingId = Convert.ToInt32(dashbooking_id.Text);
+            DateTime newCheckIn = dashcheckin.Value;
+            DateTime newCheckOut = dashcheckout.Value;
+
             string connStr = "server=localhost;user=admin1;password=admin123;database=hotel;";
             using (MySqlConnection conn = new MySqlConnection(connStr))
             {
@@ -374,29 +382,52 @@ namespace Hotel_System
                 {
                     conn.Open();
 
-                    string query = @"UPDATE booking 
-                             SET room_id = @room_id,
-                                 guest_id = @guest_id,
-                                 check_in_date = @checkin,
-                                 check_out_date = @checkout,
-                                 total_amount = @total
-                             WHERE booking_id = @booking_id";
+                    // 🔍 Overlap check query
+                    string overlapQuery = @"SELECT COUNT(*) FROM booking 
+                                    WHERE room_id = @room_id 
+                                    AND booking_id != @booking_id
+                                    AND (@checkin < check_out_date AND @checkout > check_in_date)";
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlCommand overlapCmd = new MySqlCommand(overlapQuery, conn))
                     {
-                        cmd.Parameters.AddWithValue("@room_id", selectedRoom.RoomId);
-                        cmd.Parameters.AddWithValue("@guest_id", dashfullname.Text);
-                        cmd.Parameters.AddWithValue("@checkin", dashcheckin.Value);
-                        cmd.Parameters.AddWithValue("@checkout", dashcheckout.Value);
-                        cmd.Parameters.AddWithValue("@total", decimal.Parse(dashtotalamount.Text));
-                        cmd.Parameters.AddWithValue("@booking_id", Convert.ToInt32(dashbooking_id.Text));
+                        overlapCmd.Parameters.AddWithValue("@room_id", selectedRoom.RoomId);
+                        overlapCmd.Parameters.AddWithValue("@booking_id", bookingId);
+                        overlapCmd.Parameters.AddWithValue("@checkin", newCheckIn);
+                        overlapCmd.Parameters.AddWithValue("@checkout", newCheckOut);
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
+                        int overlapCount = Convert.ToInt32(overlapCmd.ExecuteScalar());
+
+                        if (overlapCount > 0)
+                        {
+                            MessageBox.Show("The selected room is already booked for the chosen dates. Please choose different dates.", "Booking Conflict", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+
+                    // ✅ No conflicts - proceed to update
+                    string updateQuery = @"UPDATE booking 
+                                   SET room_id = @room_id,
+                                       guest_id = @guest_id,
+                                       check_in_date = @checkin,
+                                       check_out_date = @checkout,
+                                       total_amount = @total
+                                   WHERE booking_id = @booking_id";
+
+                    using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn))
+                    {
+                        updateCmd.Parameters.AddWithValue("@room_id", selectedRoom.RoomId);
+                        //updateCmd.Parameters.AddWithValue("@guest_id", dashfullname.Text);
+                        updateCmd.Parameters.AddWithValue("@guest_id", selectedGuestId);
+                        updateCmd.Parameters.AddWithValue("@checkin", newCheckIn);
+                        updateCmd.Parameters.AddWithValue("@checkout", newCheckOut);
+                        updateCmd.Parameters.AddWithValue("@total", decimal.Parse(dashtotalamount.Text));
+                        updateCmd.Parameters.AddWithValue("@booking_id", bookingId);
+
+                        int rowsAffected = updateCmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Booking updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            // Optional: Reload your booking DataGridView here
                             LoadBookingData();
                             LoadTotalRevenue();
                             LoadTotalBookings();
